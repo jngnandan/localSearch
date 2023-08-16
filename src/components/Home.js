@@ -1,24 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import Tab from './Tab'
 
-export default function Home() {
+function Home(props) {
+
+  const {data} = props
+
   return (
-    <div className='bg-purple-800 h-screen flex flex-col justify-center items-center h-screen'>
+    <div className='grid grid-cols gap-3 mx-4'>
+      
+      {data.map(eachitem => {
+        return <Tab data={eachitem} key={eachitem.id}/>
+      })}
 
-      <div className='flex flex-wrap justify-center items-center'>
-      <h1 className='w-full text-3xl text-white my-8'>Super over league</h1>
+      
 
-        <div>
-          <img src='https://assets.ccbp.in/frontend/react-js/rcb-img.png'/>
-        </div>
-        <div>
-        <img src='https://assets.ccbp.in/frontend/react-js/csk-img.png'/>
-        </div>
-        </div>
+    
     </div>
   )
 }
 
-
-
-// https://assets.ccbp.in/frontend/react-js/rcb-img.png
-// https://assets.ccbp.in/frontend/react-js/csk-img.png
+export default Home
